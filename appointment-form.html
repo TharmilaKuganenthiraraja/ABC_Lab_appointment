@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Scheduling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Appointment Scheduling</h2>
+
+    <form method="post" action="api/patient/appointments">
+        <label for="patientId">Patient ID:</label>
+        <input type="text" id="patientId" name="patientId" required>
+
+        <label for="testType">Test Type:</label>
+        <select id="testType" name="testType" required>
+            <option value="bloodTest">Blood Test</option>
+            <option value="urineTest">Urine Test</option>
+            <option value="xRay">X-Ray</option>
+            <option value="xRay">Allergy tests</option>
+            <option value="xRay">Geneticn test</option>
+            
+        </select>
+
+        <label for="appointmentTime">Appointment Time:</label>
+        <input type="datetime-local" id="appointmentTime" name="appointmentTime" required>
+
+        <button type="submit">Schedule Appointment</button>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        var patientId = document.getElementById("patientId").value;
+        var testType = document.getElementById("testType").value;
+        var appointmentTime = document.getElementById("appointmentTime").value;
+
+        if (patientId == "" || testType == "" || appointmentTime == "") {
+            alert("All fields are required");
+            return false;
+        }
+
+        var now = new Date().toISOString().slice(0, 16);
+        if (appointmentTime < now) {
+            alert("Appointment time must be in the future");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+</body>
+</html>

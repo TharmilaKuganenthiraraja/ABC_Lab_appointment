@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Laboratories</title>
+    <!-- Bootstrap CSS and JS links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #004977;
+            color: #f0dcdc;
+            background-image: url('back.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        nav {
+            background-color: #6e1e1e;
+            height: 50px;
+
+        }
+
+        nav a {
+            color: #a7e40c;
+        }
+
+        nav a:hover {
+            color: #3498db;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            width:70px
+            text-align: center;
+            margin-bottom: 2%;
+        }
+
+        .appointment-container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 70%;
+            margin-top: 0%;
+        }
+        .schedule-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db; 
+            color: #fff; 
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .schedule-button:hover {
+            background-color: #2bf435; 
+        }
+
+        h1 {
+            color: #3498db;
+        }
+
+        p {
+            color: #0b0808;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="ABC Laboratories Logo">
+        <h1>ABC Laboratories</h1>
+        <p>Your Trusted Partner in Healthcare</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls></button>
+            <a class="navbar-brand" href="#">ABC Laboratories</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="ourtest.html">Our Tests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ourteam.html">Our Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li><button type="button" class="btn btn-warning ml-4">
+                        <i class="fa fa-sign-out"></i>Logout</button></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section>
+        <div class="appointment-container">
+            <h1>Schedule Your Lab Appointment</h1>
+            <p>Choose your preferred date, time, and test type for a convenient appointment.</p>
+            <a href="login.html" class="schedule-button">Schedule Now</a>
+        </div>
+    </section>
+    <div class="container mt-5">
+        <h2 class="mb-4">Appointment Table</h2>
+    
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Doctor</th>
+                        <th scope="col">Test Type</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mr.Ravitharan</td>
+                        <td>2024-03-01</td>
+                        <td>10:00 AM</td>
+                        <td>Dr.Piranavan</td>
+                        <td>Blood Test</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mr.Shanosh</td>
+                        <td>2024-03-02</td>
+                        <td>02:30 PM</td>
+                        <td>Dr. Thushanth</td>
+                        <td>X-ray</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>miss.Dharmila</td>
+                        <td>2024-03-03</td>
+                        <td>10:30 AM</td>
+                        <td>Dr. Lanukshi</td>
+                        <td>Allergy tests</td>
+                        <td>Confirmed</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mrs.Selvamangai </td>
+                        <td>2024-03-04</td>
+                        <td>11:00 AM</td>
+                        <td>Dr. Queency</td>
+                        <td>Geneticn test</td>
+                        <td>Pending</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Mrs.Jeyarany </td>
+                        <td>2024-03-05</td>
+                        <td>09:30 AM</td>
+                        <td>Dr. Tharmi</td>
+                        <td>Urine</td>
+                        <td>Confirmed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    
+    <!-- Bootstrap JS links -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <footer>
+        &copy; 2024 ABC Laboratories. All rights reserved.
+    </footer>
+</body>
+</html>

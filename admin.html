@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ABC Laboratory</title>
+    <link rel="stylesheet" href="adminstyles.css">
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .submenu {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .menu li:hover .submenu {
+            display: block;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #090909;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #d1cfcf;
+            color: #333;
+        }
+
+        tr:nth-child(even) {
+            background-color: #d2bcbc;
+        }
+
+        tr:hover {
+            background-color: #f2e3f8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="container">
+                <h1>Admin Dashboard</h1>
+                <ul class="menu">
+                    <li>
+                        <a href="#doctors">Doctors</a>
+                        <ul class="submenu">
+                            <li><a href="#adddoctors">Add a doctor</a></li>
+                                                       
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#lab-technicians"> Lab Technicians</a>
+                        <ul class="submenu">
+                            <li><a href="#addtechnicians">Add a Technicians</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#patients"> Patients</a>
+                        <ul class="submenu">
+                            <li><a href="#addpatients">Add a Patients</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#appointments"> Appointments</a>
+                        <ul class="submenu">
+                            <li><a href="#addappointments">Add Appointments</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#payments"> Payments</a>
+                        <ul class="submenu">
+                            <li><a href="#viewpayments">View a Payments</a></li>
+                        </ul>
+                    </li>
+        
+                </ul>
+            </div>
+            </ul>
+        </nav>
+
+<!-- Page Content -->
+<div id="content">
+    <!-- Add your tables here with unique IDs -->
+    <div id="doctorsTable" class="dashboard-section">
+        <h2>Doctors</h2>
+        <table>
+            <!-- Table header -->
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Action</th>
+
+            </tr>
+            <!-- Table data will be dynamically filled -->
+            <tr>
+                <td>1</td>
+                <td>Dr. John Doe</td>
+                <td>Cardiology</td>
+                <td>
+                    <button onclick="addDoctor()">Add </button>
+                    <button onclick="editDoctor(1)">Edit</button>
+                    <button onclick="deleteDoctor(1)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="labTechniciansTable" class="dashboard-section" style="display: none;">
+        <h2>Lab Technicians</h2>
+        <table>
+            <!-- Table header -->
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+
+            <!-- Table data will be dynamically filled -->
+            <tr>
+                <td>1</td>
+                <td>Dr. John Doe</td>
+                <td>
+                    <button onclick="editDoctor(1)">Edit</button>
+                    <button onclick="deleteDoctor(1)">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+        
+    <!-- Repeat the above structure for other submenu items -->
+
+</div>
+</div>
+
+<script>
+
+    document.querySelectorAll('.submenu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    // Hide all tables by default
+                    document.querySelectorAll('.dashboard-section').forEach(table => {
+                        table.style.display = 'none';
+                    });
+
+                    // Show the table corresponding to the clicked submenu item
+                    const targetId = link.getAttribute('href').substring(1); // Get target ID without #
+                    const targetTable = document.getElementById(targetId);
+                    if (targetTable) {
+                        targetTable.style.display = 'block';
+                    }
+                });
+            });
+    function editDoctor(doctorId) {
+        // Implement logic to handle edit action
+        alert("Edit Doctor: " + doctorId);
+    }
+
+    function deleteDoctor(doctorId) {
+        // Implement logic to handle delete action
+        alert("Delete Doctor: " + doctorId);
+    }
+    <script>
+    // Function to fetch doctors from backend
+    function fetchDoctors() {
+        fetch('/api/doctors')
+            .then(response => response.json())
+            .then(doctors => {
+                // Process the fetched doctors data (e.g., update table)
+                console.log(doctors);
+                // Example: Display fetched doctors in a table
+                const doctorsTable = document.getElementById('doctorsTable');
+                doctorsTable.innerHTML = ''; // Clear previous data
+                doctors.forEach(doctor => {
+                    const row = `<tr>
+                                    <td>${doctor.id}</td>
+                                    <td>${doctor.name}</td>
+                                    <td>${doctor.specialty}</td>
+                                    <td>
+                                        <button onclick="editDoctor(${doctor.id})">Edit</button>
+                                        <button onclick="deleteDoctor(${doctor.id})">Delete</button>
+                                    </td>
+                                </tr>`;
+                    doctorsTable.insertAdjacentHTML('beforeend', row);
+                });
+            })
+            .catch(error => console.error('Error fetching doctors:', error));
+    }
+
+    // Function to add a new doctor
+    function addDoctor() {
+        const doctor = {
+            name: 'New Doctor',
+            specialty: 'Specialty'
+        };
+        fetch('/api/doctors', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(doctor)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            fetchDoctors(); // Refresh the table after adding
+        })
+        .catch(error => console.error('Error adding doctor:', error));
+    }
+
+    // Function to delete a doctor by ID
+    function deleteDoctor(id) {
+        fetch(`/api/doctors/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            fetchDoctors(); // Refresh the table after deletion
+        })
+        .catch(error => console.error('Error deleting doctor:', error));
+    }
+
+    // Call fetchDoctors function when the page loads
+    window.addEventListener('DOMContentLoaded', fetchDoctors);
+
+function addDoctor() {
+            alert("Add Doctor clicked");
+        }
+    </script>
+        
+
+</body>
+</html>

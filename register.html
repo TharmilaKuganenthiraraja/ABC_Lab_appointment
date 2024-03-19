@@ -1,0 +1,127 @@
+<!-- register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - ABC Laboratories</title>
+    <!-- Bootstrap CSS and JS links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        h2 {
+            color: #0964a0;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .quote {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="ABC Laboratories Logo">
+        <h1>ABC Laboratories</h1>
+        <p>Your Trusted Partner in Healthcare</p>
+    </header>
+
+    <!-- Registration Form -->
+    <form method="post" action="/register">
+        <h2>Patient's Register</h2>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+            <label for="telephone">Telephone Number</label>
+            <input type="tel" class="form-control" id="telephone" placeholder="Enter your telephone number" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" id="dob" required>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="city">City</label>
+            <select class="form-control" id="city">
+                <option value="jaffna">Jaffna</option>
+                <option value="mullaitivu">Mullaitivu</option>
+                <option value="vavuniya">Vavuniya</option>
+                <option value="colombo">Colombo</option>
+                <option value="kandy">Kandy</option>
+            </select>
+        </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="bloodgroup">Bloodgroup</label>
+            <select class="form-control" id="bloodgroup">
+                <option value="a">A+</option>
+                <option value="a">A-</option>
+                <option value="b">B+</option>
+                <option value="a">B-</option>
+                <option value="ab">AB+</option>
+                <option value="a">AB-</option>
+                <option value="o">O+</option>
+                <option value="a">O-</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+            <div class="form-group col-md-6">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+    </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Clear</button>
+    </form>
+
+    <!-- Quote for login -->
+    <div class="quote">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+</body>
+</html>
